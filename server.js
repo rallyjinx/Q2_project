@@ -41,10 +41,10 @@ app.use((req, res, next) => {
 });
 
 const users = require('./routes/users');
-//const posts = require('./routes/posts');
+const posts = require('./routes/posts');
 
 app.use(users);
-//app.use(posts);
+app.use(posts);
 
 app.use((_req, res) => {
   res.sendStatus(404);

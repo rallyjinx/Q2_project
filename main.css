@@ -35,11 +35,11 @@ body {
   padding-top: 10px;
 }
 
-.thing1 {
+.column-pad1 {
   padding-top: 50px;
 }
 
-.thing2 {
+.column-pad2 {
   padding-top: 20px;
 }
 
@@ -81,6 +81,8 @@ body {
 
 .index-foot {
   position: absolute;
+  padding-left: 50px;
+  padding-top: 15px;
 }
 
 .input {
@@ -120,4 +122,38 @@ body {
 }
 .req {
   color: red;
+}
+
+.row.is-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.row.is-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+* And with max cross-browser enabled.
+*/
+.row.is-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.is-flex > [class*='col-'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
