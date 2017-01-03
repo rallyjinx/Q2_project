@@ -1,5 +1,15 @@
 
+body {
+  padding-top: 50px;
+}
 
+.btn-link {
+  color: white;
+}
+
+.btn-link:hover {
+  color: #ba036b;
+}
 .header {
   text-align: center;
   position: absolute;
@@ -11,7 +21,11 @@
 }
 
 .thing1 {
-  padding-top: 100px;
+  padding-top: 50px;
+}
+
+.thing2 {
+  padding-top: 20px;
 }
 
 .form-group {
@@ -52,4 +66,39 @@
 
 .index-foot {
   position: absolute;
+}
+
+.input {
+  width: 50%;
+  text-align: center;
+  padding-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.db-col {
+  border-style: solid;
+  border-width: thin;
+
+}
+
+.idea-search {
+  border-style: solid;
+  border-width: thin;
+  padding: 10px;
+}
+
+.idea-results {
+  border-style: solid;
+  border-width: thin;
+  padding-bottom: 10px;
+}
+
+.topic-btns {
+  padding-left: 150px;
+  padding-top: 50px;
+}
+
+.req {
+  color: red;
 }

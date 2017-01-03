@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Search</title>
+    <script src="jquery/jquery-3.1.1.slim.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <header class="header">
+      <h1>Idea Exchange</h1>
+    </header>
+    <div class="container-fluid thing2">
+      <div class="row">
+        <div class="col-md-6 idea-search">
+          <div class="dropdown open">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Search Ideas by Topic
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+             <button class="dropdown-item" type="button">Coding</button>
+             <button class="dropdown-item" type="button">Metal</button>
+             <button class="dropdown-item" type="button">Wood</button>
+             <button class="dropdown-item" type="button">Sewing</button>
+             <button class="dropdown-item" type="button">Book</button>
+           </div>
+          </div>
+        </div>
+        <div class="col-md-6 idea-search">
+          <button type="submit" id="random" class="btn btn-primary">Random Idea</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 idea-results">
+          <h3>results</h3>
+          <ul>
+            <li>list</li>
+            <li>of</li>
+            <li>results</li>
+            <li>here</li>
+            <li>some</li>
+            <li>fucking</li>
+            <li>how</li>
+            <li>and how</li>
+            <li>do i make</li>
+            <li>the columns</li>
+            <li>one size????</li>
+          </ul>
+        </div>
+        <div class="col-md-6 idea-results">
+          <h3>image</h3>
+          <img src="http://www.fillmurray.com/200/300" alt="placeholder murray">
+        </div>
+      </div>
+    </div>
+    <footer class="foot index-foot">
+      <h6>Footer Stuff</h6>
+    </footer>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/npm.js"></script>
+  </body>
+</html>
