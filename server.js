@@ -40,10 +40,10 @@ app.use((req, res, next) => {
   res.sendStatus(406);
 });
 
-//const users = require('./routes/users');
+const users = require('./routes/users');
 //const posts = require('./routes/posts');
 
-//app.use(users);
+app.use(users);
 //app.use(posts);
 
 app.use((_req, res) => {

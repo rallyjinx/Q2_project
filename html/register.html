@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Register</title>
+    <script src="../jquery/jquery-3.1.1.slim.js"></script>
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../main.css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+    <script>
+        $(document).ready(function () {
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
+  </head>
+  <body>
+    <header class="header container">
+      <nav class="navbar navbar-light navbar-full bg-faded">
+        <a class="navbar-brand header-txt" href="../html/index.html">Idea Exchange</a>
+
+        <div class="btn-group nav-item dropdown navbar-right header-btn">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="../html/index.html">Login</a><br>
+            <a class="dropdown-item" href="../html/register.html">Register</a><br>
+            <a class="dropdown-item" href="../html/dashboard.html">My Dashboard</a><br>
+            <a class="dropdown-item" href="../html/search.html">Search Ideas</a><br>
+            <a class="dropdown-item" href="../html/post_idea.html">Post an Idea</a><br>
+          </div>
+        </div>
+
+      </nav>
+    </header>
+    <div class="form-group thing1">
+      <form class="reg-form">
+        <div class="text-center">
+          <label class="lbl-lg" for="username">Username</label>
+        </div>
+        <div class="input-group input-group-lg">
+          <input class="form-control" type="text" id="username"></input>
+        </div>
+        <div class="text-center">
+          <label class="lbl-lg" for="email">Email</label>
+        </div>
+        <div class="input-group input-group-lg">
+          <input class="form-control" type="email" id="email"></input>
+        </div>
+        <div class="text-center">
+          <label class="lbl-lg" for="password">Password</label>
+        </div>
+        <div class="input-group input-group-lg">
+          <input class="form-control" type="password" id="password"></input>
+        </div>
+        <div class="text-center">
+          <label class="lbl-lg" for="password">Confirm Password</label>
+        </div>
+        <div class="input-group input-group-lg">
+          <input class="form-control" type="password" id="password"></input>
+        </div>
+        <br>
+        <div class="text-center">
+        <button class="btn btn-lg btn-primary" type="submit">Register</button>
+      </div>
+      </form>
+      <br><br>
+      <h5>Or click here to go to the login page:</h5>
+      <button class="btn btn-sm btn-secondary"><a href="../html/index.html">Login</a></button>
+    </div>
+    <footer class="foot">
+      <h6>Footer Stuff</h6>
+    </footer>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/npm.js"></script>
+  </body>
+</html>
