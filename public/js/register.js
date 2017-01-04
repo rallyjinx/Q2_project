@@ -14,8 +14,10 @@ $(document).ready(function() {
     //validate things - validated in post function
 
     //if bad, tell the bad people they are bad
-
+    //HOOOOOOWWWWWWWWWWWW???????
+    
     //if good, go to login page
+    //HOOOOOOWWWWWWWWWWWW???????
   })
 }); // end document.ready
 

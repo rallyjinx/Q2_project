@@ -23,6 +23,7 @@ $(document).ready(function() {
 
 function http_login(req_user, req_pw) {
   console.log('http_login()', req_user, req_pw);
+  //do things here - POST ajax call - login validations
 }
 
 // function http_req(req_username, req_email, req_password) {

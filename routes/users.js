@@ -43,6 +43,7 @@ router.post('/users', ev(validations.post), (req, res, next) => {
       const user = users[0];
       delete user.digest;
       res.send(user);
+      res.render('/public/index') //does nothing
     })
     .catch((err) => {
       next(err);
