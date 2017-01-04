@@ -17,6 +17,19 @@ router.get('/users', (_req, res, next) => {
 });
 
 router.post('/users', ev(validations.post), (req, res, next) => {
+  // var result = Joi.validate(data, schema);
+  // var errors = [];
+  //
+  // if (result.error) {
+  //     result.error.details.forEach(function(detail) {
+  //         errors.push({
+  //             key: detail.path,
+  //             message: detail.message
+  //         });
+  //     });
+  // }
+  // console.log(errors);
+
   bcrypt.hash(req.body.digest, 12)
     .then((hashedPassword) => {
       return knex('users')
