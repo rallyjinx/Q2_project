@@ -9,9 +9,8 @@ module.exports = {
 
   test: {
     client: 'pg',
-    connection: 'postgres://localhost/ideadb_test'
+    connection: 'postgres://localhost/ideadb_test',
+    
   }
-
-
 
 };
