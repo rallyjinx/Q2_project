@@ -32,6 +32,7 @@ const path = require('path');
 
 app.use(express.static(path.join('public')));
 
+//Cross-Site Request Forgery protection
 app.use((req, res, next) => {
   const accept = '/json/.test(req.get(\'Accept\'))';
   if (accept) {

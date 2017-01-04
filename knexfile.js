@@ -18,5 +18,5 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL + '?ssl=true'
   }
-
+//heroku/production stuff : https://learn.galvanize.com/content/gSchool/node-curriculum/master/Knex/Step-by-Step.md
 };

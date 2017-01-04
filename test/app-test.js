@@ -62,8 +62,9 @@ describe('GET /users', () => {
           digest: 'meowmeowmeow'
 
         }]);
-        done();
+
       });
+      done();
   });
 
 });

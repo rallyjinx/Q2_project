@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Register</title>
-    <script src="../jquery/jquery-3.1.1.min.js"></script>
-    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../main.css">
+    <title>Login</title>
+    <script src="./jquery/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./main.css">
     <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
     <script>
         $(document).ready(function () {
@@ -35,18 +35,12 @@
       </nav>
     </header>
     <div class="form-group column-pad1">
-      <form class="reg-form">
+      <form class="login-form">
         <div class="text-center">
-          <label class="lbl-lg" for="username">Username</label>
+          <label class="lbl-lg" for="username">Email</label>
         </div>
         <div class="input-group input-group-lg">
-          <input class="form-control" type="text" id="username" required autofocus></input>
-        </div>
-        <div class="text-center">
-          <label class="lbl-lg" for="email">Email</label>
-        </div>
-        <div class="input-group input-group-lg">
-          <input class="form-control" type="email" id="email" required></input>
+          <input class="form-control" type="email" id="username" required autofocus></input>
         </div>
         <div class="text-center">
           <label class="lbl-lg" for="password">Password</label>
@@ -54,27 +48,20 @@
         <div class="input-group input-group-lg">
           <input class="form-control" type="password" id="password" required></input>
         </div>
-        <div class="text-center">
-          <label class="lbl-lg" for="password">Confirm Password</label>
-        </div>
-        <div class="input-group input-group-lg">
-          <input class="form-control" type="password" id="password" required></input>
-        </div>
         <br>
         <div class="text-center">
-        <button class="btn btn-lg btn-primary" type="submit" id="register-btn">Register</button>
+        <button class="btn btn-lg btn-primary" type="submit" id="login-btn">Login</button>
       </div>
       </form>
       <br><br>
-      <h5>Or click here to go to the login page:</h5>
-      <button class="btn btn-sm btn-secondary"><a href="../html/index.html">Login</a></button>
+      <h5>Or click here to register:</h5>
+      <button class="btn btn-sm btn-secondary"><a href="../html/register.html">Register</a></button>
     </div>
     <footer class="foot index-foot">
       <h6>&copy; 2017 Rally Jinx</h6>
     </footer>
-    <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script src="../bootstrap-3.3.7-dist/js/npm.js"></script>
-    <script src="../register.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="./js/login.js"></script>
   </body>
 </html>
