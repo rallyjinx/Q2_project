@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% include ../partials/head %>
     <meta charset="utf-8">
     <title>Login</title>
     <script src="./jquery/jquery-3.1.1.min.js"></script>
@@ -35,23 +36,23 @@
       </nav>
     </header>
     <div class="form-group column-pad1">
-      <form class="login-form">
-        <div class="text-center">
-          <label class="lbl-lg" for="username">Email</label>
+      <form class="login-form" action="/login" method="post">
+        <div class="text-center form-group">
+          <label class="lbl-lg" for="email">Email</label>
         </div>
         <div class="input-group input-group-lg">
-          <input class="form-control" type="email" id="username" required autofocus></input>
+          <input class="form-control" type="email" id="email" name="email" required autofocus></input>
         </div>
         <div class="text-center">
-          <label class="lbl-lg" for="password">Password</label>
+          <label class="lbl-lg" for="digest">Password</label>
         </div>
         <div class="input-group input-group-lg">
-          <input class="form-control" type="password" id="password" required></input>
+          <input class="form-control" type="password" id="password" name="digest" required></input>
         </div>
         <br>
         <div class="text-center">
-        <button class="btn btn-lg btn-primary" type="submit" id="login-btn">Login</button>
-      </div>
+          <button class="btn btn-lg btn-primary" type="submit" id="login-btn">Login</button>
+        </div>
       </form>
       <br><br>
       <h5>Or click here to register:</h5>

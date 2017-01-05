@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     //if bad, tell the bad people they are bad
     //HOOOOOOWWWWWWWWWWWW???????
-    
+
     //if good, go to login page
     //HOOOOOOWWWWWWWWWWWW???????
   })
@@ -31,6 +31,7 @@ function http_req(req_username, req_email, req_password) {
     data: JSON.stringify( { "username": req_username, "email": req_email, "digest": req_password } ),
     processData: false,
     success: function( data, textStatus, jQxhr ) {
+      
       console.log("success!", JSON.stringify(data));
     },
     error: function( jqXhr, textStatus, errorThrown ){

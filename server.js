@@ -11,6 +11,7 @@ app.disable('x-powered-by');
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
 const morgan = require('morgan');
 
 switch (app.get('env')) {
@@ -24,9 +25,16 @@ switch (app.get('env')) {
 
   default:
 }
-
+app.set('view engine', 'ejs');
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended:false
+}));
 app.use(cookieParser());
+app.use(cookieSession({
+  secret: "squirrel"
+}))
+app.use(require('flash')());
 
 const path = require('path');
 
@@ -43,9 +51,13 @@ app.use((req, res, next) => {
 
 const users = require('./routes/users');
 const posts = require('./routes/posts');
+const login = require('./routes/login');
+const dashboard = require('./routes/dashboard');
 
 app.use(users);
 app.use(posts);
+app.use(login);
+app.use(dashboard);
 
 app.use((_req, res) => {
   res.sendStatus(404);

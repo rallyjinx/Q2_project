@@ -6,31 +6,12 @@ const ev = require('express-validation');
 const validations = require('../validations/users');
 
 router.get('/users', (_req, res, next) => {
-  knex('users')
-    .orderBy('id')
-    .then((users) => {
-      res.send(users);
-    })
-    .catch((err) => {
-      next(err);
-    });
+  res.render('users');
 });
-
-router.post('/users', ev(validations.post), (req, res, next) => {
-  // var result = Joi.validate(data, schema);
-  // var errors = [];
-  //
-  // if (result.error) {
-  //     result.error.details.forEach(function(detail) {
-  //         errors.push({
-  //             key: detail.path,
-  //             message: detail.message
-  //         });
-  //     });
-  // }
-  // console.log(errors);
-
-  bcrypt.hash(req.body.digest, 12)
+//ev(validations.post),
+router.post('/users',  (req, res, next) => {
+  console.log(req.body.password);
+  bcrypt.hash(req.body.password, 12)
     .then((hashedPassword) => {
       return knex('users')
         .insert({
@@ -39,11 +20,8 @@ router.post('/users', ev(validations.post), (req, res, next) => {
           digest: hashedPassword
         }, '*');
     })
-    .then((users) => {
-      const user = users[0];
-      delete user.digest;
-      res.send(user);
-      res.render('/public/index') //does nothing
+    .then(() => {
+      res.redirect('/login') //does nothing
     })
     .catch((err) => {
       next(err);

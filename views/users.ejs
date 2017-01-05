@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/head %>
+  </head>
+  <body>
+    <header class="header container">
+      <nav class="navbar navbar-light navbar-full bg-faded">
+        <a class="navbar-brand header-txt" href="/index.html">Idea Exchange</a>
+
+        <div class="btn-group nav-item dropdown navbar-right header-btn">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/index.html">Login</a><br>
+            <a class="dropdown-item" href="/register.html">Register</a><br>
+            <a class="dropdown-item" href="/dashboard.html">My Dashboard</a><br>
+            <a class="dropdown-item" href="/search.html">Search Ideas</a><br>
+            <a class="dropdown-item" href="/post_idea.html">Post an Idea</a><br>
+          </div>
+        </div>
+
+      </nav>
+    </header>
+    <div class="form-group column-pad1">
+      <form class="reg-form" action="/users" method="post">
+        <div class="text-center">
+          <label class="lbl-lg" for="username">Username</label>
+        </div>
+        <div class="input-group input-group-lg">
+          <input class="form-control" type="text" id="username" name="username" required autofocus></input>
+        </div>
+        <div class="text-center">
+          <label class="lbl-lg" for="email">Email</label>
+        </div>
+        <div class="input-group input-group-lg">
+          <input class="form-control" type="email" id="email" name="email" required></input>
+        </div>
+        <div class="text-center">
+          <label class="lbl-lg" for="password">Password</label>
+        </div>
+        <div class="input-group input-group-lg">
+          <input class="form-control" type="password" id="password" name="password" required></input>
+        </div>
+        <div class="text-center">
+          <label class="lbl-lg" for="conf_password">Confirm Password</label>
+        </div>
+        <div class="input-group input-group-lg">
+          <input class="form-control" type="password" id="conf_password" name="conf_password" required></input>
+        </div>
+        <br>
+        <div class="text-center">
+        <button class="btn btn-lg btn-primary" type="submit" id="register-btn">Register</button>
+      </div>
+      </form>
+      <br><br>
+      <h5>Or click here to go to the login page:</h5>
+      <button class="btn btn-sm btn-secondary"><a href="/index.html">Login</a></button>
+    </div>
+    <footer class="foot index-foot">
+      <h6>&copy; 2017 Rally Jinx</h6>
+    </footer>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
