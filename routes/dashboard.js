@@ -23,9 +23,11 @@ router.get('/dashboard', [authorizedUser], (req, res, next) => {
   knex('posts')
     .where('user_id', req.session.user.id)
     .then((myposts) => {
-      //res.render('dashboard', {user: req.session.user.username, ideas: myposts})
-    //  console.log(posts); // logs {posts}
+
       return myposts;
+
+      //res.render('dashboard', {user: req.session.user.username, ideas: myposts})
+
     })
     .then((myposts) => {
       knex('postsusers').innerJoin('posts', 'posts.id', 'postsusers.post_id')
