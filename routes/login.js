@@ -8,14 +8,14 @@ const ev = require('express-validation');
 const validations = require('../validations/users');
 const flash = require('flash');
 
-// router.get('/', function (req, res) {
-//   res.send('GET request to the homepage')
-//   next();
-// })
-
 router.get('/', function(req, res) {
   res.render('login');
-};
+});
+
+router.get('/', function (req, res, next) {
+  let user = req.session.user;
+  res.render('dashboard')
+});
 
 router.get('/login', (_req, res, next) => {
   console.log('login.js get route');
@@ -38,11 +38,6 @@ function authorizedUser(req, res, next) {
     res.redirect('/')
   }
 }
-
-router.get('/', function (req, res, next) {
-  let user = req.session.user;
-  res.render('dashboard')
-})
 
 router.post('/login', function (req, res, next) {
   console.log('in login.js post', req.body.digest);
