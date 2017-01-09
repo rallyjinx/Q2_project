@@ -13,6 +13,10 @@ const flash = require('flash');
 //   next();
 // })
 
+router.get('/', function(req, res) {
+  res.render('login');
+};
+
 router.get('/login', (_req, res, next) => {
   console.log('login.js get route');
   res.render('login');
