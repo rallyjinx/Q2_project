@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/head %>
+  </head>
+  <body>
+    <% include partials/header %>
+
+    <div class="container-fluid column-pad2">
+      <div class="row">
+        <div class="idea-search">
+          <div class="btn-group">
+            <h3>Search Ideas by Topic</h3>
+            <form class="search-menu form-group" action="/results" method="get">
+              <select class="form-control" name="topic" id="topic" multiple="false" size="7">
+                <option value="music" id="music" name="music">Music</option>
+                <option value="computer" id="computer" name="computer">Computer</option>
+                <option value="metal" id="metal" name="metal">Metal</option>
+                <option value="wood" id="wood" name="wood">Wood</option>
+                <option value="sewing" id="sewing" name="sewing">Sewing</option>
+                <option value="writing" id="writing" name="writing">Writing</option>
+                <option value="performance" id="performance" name="performance">Performance</option>
+              </select>
+              <br>
+              <button class="btn btn-lg btn-primary" type="submit" id="search-submit">Search</button>
+           </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <footer class="foot index-foot">
+      <h6>&copy; 2017 Rally Jinx</h6>
+    </footer>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

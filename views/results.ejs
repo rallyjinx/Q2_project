@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/head %>
+  </head>
+  <body>
+    <% include partials/header %>
+
+    <div class="container-fluid column-pad2">
+      <div class="row is-flex">
+       <div class="col-md-6 idea-results">
+
+         <h3>Results for <%= topicname %> ideas</h3>
+
+
+           <% if (ideas) { %>
+             <form class="input form-group" action="/postsusers" method="post">
+            <ul>
+              <% ideas.forEach((idea) => { %>
+               <li><%= idea.idea_text %>
+
+                 <div class="form-check">
+                   <label class="form-check-label">
+                     <input class="form-check-input" type="checkbox" name="idea" id="<%idea.id%>" value="<%= idea.id %>">
+                     Save idea
+                   </label>
+                 </div>
+               </li>
+
+           <% }); %>
+             </ul>
+             <button type="submit">Save Ideas</button>
+           </form>
+           <% } else { %>
+             <h3>No topic selected</h3>
+           <% } %>
+
+
+         <a class="new-search" href="/search">Search again</a>
+       </div>
+       <div class="col-md-6 idea-results">
+         <h3>Some related image or something</h3>
+         <img src="http://www.fillmurray.com/200/300" alt="placeholder murray" width=100%>
+       </div>
+     </div>
+
+    </div>
+    <footer class="foot index-foot">
+      <h6>&copy; 2017 Rally Jinx</h6>
+    </footer>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

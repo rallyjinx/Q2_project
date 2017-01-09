@@ -4,65 +4,38 @@
     <% include partials/head %>
   </head>
   <body>
-    <header class="header container">
-      <nav class="navbar navbar-light navbar-full bg-faded">
-        <a class="navbar-brand header-txt" href="/index.html">Idea Exchange</a>
-
-        <div class="btn-group nav-item dropdown navbar-right header-btn">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Menu
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/index.html">Login</a><br>
-            <a class="dropdown-item" href="/register.html">Register</a><br>
-            <a class="dropdown-item" href="/dashboard.html">My Dashboard</a><br>
-            <a class="dropdown-item" href="/search.html">Search Ideas</a><br>
-            <a class="dropdown-item" href="/post_idea.html">Post an Idea</a><br>
-          </div>
-        </div>
-
-      </nav>
-    </header>
+    <% include partials/header %>
     <div class="container-fluid column-pad2">
       <div class="row is-flex">
         <div class="col-md-4 db-col">
-          <h3>Dashboardy things for:</h3>
-          <%= user %>
+          <h3><%= user %>'s Dashboard</h3>
+
+          <form class="form-group" action="/posts" method="delete">
+            <label for="delete">Enter idea ID to delete:</label>
+            <input type="text" name="delete-id" id="delete" size="5"></input> <!-- how to attach id -->
+            <button type="submit" class="btn btn-sm btn-secondary">Delete Posted Idea</button>
+          </form>
+          <form class="form-group" action="/postsusers" method="delete">
+            <label for="delete-saved">Enter saved idea ID to delete:</label>
+            <input type="text" name="delete-saved" id="delete-saved" size="5"></input>
+            <button type="submit" class="btn btn-sm btn-secondary">Delete Saved Idea</button>
+          </form>
+        </div>
+        <div class="col-md-4 db-col">
+          <h3>My posted ideas</h3>
           <ul>
-            <li>what</li>
-            <li>goes</li>
-            <li>in</li>
-            <li>dashboards?</li>
-            <li>speed</li>
-            <li>rpms</li>
+            <% ideas.forEach((idea) => { %>
+                <li>ID: <%= idea.id %> Idea: <%= idea.idea_text %></li>
+            <% }); %>
           </ul>
         </div>
         <div class="col-md-4 db-col">
-          <h3>My ideas</h3>
+          <h3>Saved ideas</h3>
           <ul>
-            <li>ideas</li>
-            <li>linked</li>
-            <li>from</li>
-            <li>databases</li>
-            <li>go</li>
-            <li>here</li>
-          </ul>
-        </div>
-        <div class="col-md-4 db-col">
-          <h3>New ideas</h3>
-          <ul>
-            <li>ideas</li>
-            <li>from</li>
-            <li>other</li>
-            <li>users</li>
-            <li>also</li>
-            <li>linked</li>
-            <li>somehow</li>
-            <li>from</li>
-            <li>databases</li>
-            <li>shall live</li>
-            <li>here</li>
-          </ul>
+            <% saved_ideas.forEach((saved_idea) => { %>
+            <li>ID: <%= saved_idea.id %> Idea: <%= saved_idea.idea_text %></li>
+          <% }); %>
+        </ul>
         </div>
       </div>
     </div>

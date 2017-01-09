@@ -12,12 +12,6 @@ module.exports.post = {
       .min(10)
       .max(300),
     topic: Joi.string()
-      .label('Topic'),
-    new_user_id: Joi.number()
-      .label('New User ID')
-      .integer(),
-    claimed: Joi.number()
-      .label('Number of Users Who Have Saved This Idea')
-      .integer()
+      .label('Topic')
   }
 };

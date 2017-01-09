@@ -4,15 +4,18 @@ const knex = require('../db/knex');
 const ev = require('express-validation');
 const validations = require('../validations/posts');
 
-router.get('/posts', (_req, res, next) => {
-  knex('posts')
-    .orderBy('user_id')
-    .then((posts) => {
-      res.send(posts);
-    })
-    .catch((err) => {
-      next(err);
-    });
+function authorizedUser(req, res, next) {
+  //
+  let userID = req.session.user;
+  if(userID){
+    next();
+  } else {
+    res.render('restricted')
+  }
+
+}
+router.get('/posts', [authorizedUser], (_req, res, next) => {
+  res.render('post_idea');
 });
 
 router.get('/posts/:id', (req, res, next) => {
@@ -25,18 +28,17 @@ router.get('/posts/:id', (req, res, next) => {
       next(err);
     });
 });
-
-router.post('/posts', ev(validations.post), (req, res, next) => {
+//ev(validations.post),
+router.post('/posts', (req, res, next) => {
+  console.log("inside posts, req.body", req.body);
   knex('posts')
     .insert({
-      user_id: req.body.user_id, //????
-      idea_text: req.body.idea_text,
-      topic: req.body.topic,
-      new_user_id: req.body.new_user_id, //????
-      claimed: req.body.claimed //????
+      user_id: knex.select('id').from('users').where('id', req.session.user.id),
+      idea_text: req.body.post_text,
+      topic: req.body.topics,
     }, '*')
     .then((posts) => {
-      res.send(posts[0]);
+      res.redirect('/dashboard')
     })
     .catch((err) => {
       next(err);
@@ -56,8 +58,6 @@ router.patch('/posts/:id', (req, res, next) => {
           user_id: req.body.user_id, //????
           idea_text: req.body.idea_text,
           topic: req.body.topic,
-          new_user_id: req.body.new_user_id, //????
-          claimed: req.body.claimed //????
         }, '*')
         .where('id', req.params.id)
     })
@@ -70,16 +70,19 @@ router.patch('/posts/:id', (req, res, next) => {
 });
 
 router.delete('/posts/:id', (req, res, next) => {
+  console.log('in delete');
   knex('posts')
     .where('id', req.params.id)
+    .where('user_id', req.sessions.user)
     .first()
     .then((post) => {
       knex('posts')
         .where('id', req.params.id)
         .del()
         .then(() => {
-          delete post.id;
-          res.send(post);
+          console.log('deleted!');
+          // delete post.id;
+          // res.send(post);
         })
     })
     .catch((err) => {

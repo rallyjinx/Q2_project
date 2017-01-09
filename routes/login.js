@@ -37,11 +37,10 @@ function authorizedUser(req, res, next) {
 
 router.get('/', function (req, res, next) {
   let user = req.session.user;
-
   res.render('dashboard')
 })
 
-  router.post('/login', function (req, res, next) {
+router.post('/login', function (req, res, next) {
   console.log('in login.js post', req.body.digest);
 
   knex('users').where({
@@ -49,8 +48,7 @@ router.get('/', function (req, res, next) {
   }).first().then(function (user) {
     console.log("before if", user);
     if(!user){
-      console.log(user);
-      res.send('no username')
+      res.redirect('/login') //add something here to say incorrect login or something
     } else {
       console.log('just before bcrypt.compare', req.body.digest, user.digest);
       bcrypt.compare(req.body.digest, user.digest, function(err, result) {

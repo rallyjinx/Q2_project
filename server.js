@@ -53,11 +53,19 @@ const users = require('./routes/users');
 const posts = require('./routes/posts');
 const login = require('./routes/login');
 const dashboard = require('./routes/dashboard');
+const search = require('./routes/search');
+const logout = require('./routes/logout')
+const results = require('./routes/search')
+const postsusers = require('./routes/postsusers')
 
 app.use(users);
 app.use(posts);
 app.use(login);
 app.use(dashboard);
+app.use(search);
+app.use(logout);
+app.use(results);
+app.use(postsusers);
 
 app.use((_req, res) => {
   res.sendStatus(404);

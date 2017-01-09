@@ -1,6 +1,7 @@
 
 body {
   padding-top: 50px;
+  background-color: #f5f5f5;
 }
 
 .btn-link {
@@ -20,10 +21,21 @@ body {
   color: white;
 }
 
+.restrict_header {
+  background-color: red;
+}
+
 .header-txt {
   color: white;
   font-size: 50px;
   font-family: 'Caveat', cursive;
+}
+
+.logout-btn {
+  color: white;
+}
+.logout-btn:hover {
+  color: green;
 }
 
 .header-txt:hover {
@@ -69,7 +81,9 @@ body {
 .input-group .form-control:last-child:first-child {
     border-radius: 5px;
 }
-
+.post-text {
+  width: 50%;
+}
 .foot {
   position: relative;
   bottom: 0;
@@ -83,6 +97,10 @@ body {
   position: absolute;
   padding-left: 50px;
   padding-top: 15px;
+}
+
+.restrict-foot {
+  background-color: red;
 }
 
 .input {
@@ -103,7 +121,9 @@ body {
   border-style: solid;
   border-width: thin;
   padding: 10px;
+  text-align: center;
 }
+
 
 .idea-results {
   border-style: solid;
@@ -124,6 +144,20 @@ body {
   color: red;
 }
 
+.restricted {
+  text-align: center;
+  padding: 50px;
+  padding-top: 10px;
+}
+
+.filler-image {
+  text-align: center;
+}
+
+.new-search {
+  text-align: center;
+  color: blue;
+}
 .row.is-flex {
     display: flex;
     flex-wrap: wrap;

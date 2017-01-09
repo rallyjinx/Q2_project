@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/head %>
+  </head>
+  <body>
+    <% include partials/header %>
+    <div class="container-fluid column-pad2">
+      <div class="row">
+        <div class="col-md-4 topic-btns">
+          <form class="input form-group" action="/posts" method="post">
+          <div class="form-check">
+            <h5 class="req">Choose one (required)</h5>
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="topics" id="topic1" value="music">
+              Music
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="topics" id="topic2" value="computer">
+              Computer
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="topics" id="topic3" value="metal">
+              Metal
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="topics" id="topic4" value="sewing">
+              Sewing
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="topics" id="topic5" value="writing">
+              Writing
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="topics" id="topic6" value="wood">
+              Wood
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="topics" id="topic6" value="performance">
+              Performance
+            </label>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <!-- <form class="input form-group"> -->
+            <label for="post-text">Enter your idea here</label>
+            <textarea id="post-text" class="form-control post-text" rows="15" name="post_text" required></textarea>
+            <br>
+            <button type="submit" class="btn btn-lg btn-primary" id="post-submit-btn">Post Idea</button>
+            <!-- <a href="/" class="btn-link"> -->
+            <!-- </form> -->
+        </div>
+          </form>
+      </div>
+    </div>
+    <footer class="foot index-foot">
+      <h6>&copy; 2017 Rally Jinx</h6>
+    </footer>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
