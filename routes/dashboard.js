@@ -26,6 +26,7 @@ router.get('/dashboard', [authorizedUser], (req, res, next) => {
 
       return myposts;
 
+      //without any saved_ideas
       //res.render('dashboard', {user: req.session.user.username, ideas: myposts})
 
     })

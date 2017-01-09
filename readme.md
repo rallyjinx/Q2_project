@@ -25,8 +25,6 @@ searchable by topic or you can ask for a random idea.
 // │user_id      │integer                  │not null default '' foreign key references users  │
 // │idea_text    │text                     │not null default ''                               │
 // │topic        │string                   │not null default ''                               │
-// │new_user_id  │integer                  │not null default '' foreign key references users  │
-// |claimed      |integer                  |not null default ''                               |
 // │created_at   │timestamp with time zone │not null default now()                            │
 // │updated_at   │timestamp with time zone │not null default now()                            │
 // └─────────────┴─────────────────────────┴──────────────────────────────────────────────────┘
