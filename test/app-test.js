@@ -28,9 +28,8 @@ beforeEach(done => {
   ]).then(() => done());
 });
 
-afterEach(done => {
-  knex('users').del().then(() => done());
-});
+afterEach(done => { knex('users').del().then(() => done()) });
+
 
 describe('GET /users', () => {
   it('responds with JSON', done => {
@@ -45,6 +44,7 @@ describe('GET /users', () => {
     request(app)
       .get('/users')
       .end((err, res) => {
+        console.log('in second test');
         expect(res.body).to.deep.equal([{
           id: 1,
           username: 'Sprocket',
@@ -69,15 +69,15 @@ describe('GET /users', () => {
 
 });
 
-xdescribe('POST /users', () => {
+describe('POST /users', () => {
 
 });
 
-xdescribe('DELETE /users/:id', () => {
+describe('DELETE /users/:id', () => {
 
 });
 
-xdescribe('GET /posts', () => {
+describe('GET /posts', () => {
 
 });
 

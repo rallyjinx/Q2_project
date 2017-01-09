@@ -9,7 +9,11 @@
       <div class="row is-flex">
         <div class="col-md-4 db-col">
           <h3><%= user %>'s Dashboard</h3>
-
+          <ul>
+            <li><a href='/post_idea'>Post a new idea</a></li>
+            <li><a href='/search'>Search ideas</a></li>
+          </ul>
+          <br>
           <form class="form-group" action="/posts" method="delete">
             <label for="delete">Enter idea ID to delete:</label>
             <input type="text" name="delete-id" id="delete" size="5"></input> <!-- how to attach id -->
