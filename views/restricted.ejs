@@ -4,7 +4,24 @@
     <% include partials/head %>
   </head>
   <body>
-    <% include partials/header %>
+    <header class="header container restrict-header">
+      <nav class="navbar navbar-light navbar-full bg-faded">
+        <a class="navbar-brand header-txt" href="/login">Idea Exchange</a>
+        <div class="btn-group nav-item dropdown navbar-right header-btn">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/login">Login</a><br>
+            <a class="dropdown-item" href="/users">Register</a><br>
+            <a class="dropdown-item" href="/dashboard">My Dashboard</a><br>
+            <a class="dropdown-item" href="/search">Search Ideas</a><br>
+            <a class="dropdown-item" href="/posts">Post an Idea</a><br>
+          </div>
+        </div>
+
+      </nav>
+    </header>
 
     <div class="row restricted">
       <h1>UNAUTHORIZED. THIS COMPUTER WILL SELF-DESTRUCT IN 30 SECONDS.</h1>
@@ -13,7 +30,7 @@
       <h6>or here to register</h6>
       <button class="btn btn-lg btn-secondary"><a href="/users">Register</a></button>
     </div>
-    <div class="row filler-image">
+    <div class="row restricted-image">
       <img src="http://www.fillmurray.com/200/300" alt="placeholder murray">
     </div>
     <footer class="foot index-foot restrict-foot">

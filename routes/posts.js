@@ -6,6 +6,7 @@ const validations = require('../validations/posts');
 
 function authorizedUser(req, res, next) {
   //
+  console.log('greetings from authorizedUser');
   let userID = req.session.user;
   if(userID){
     next();
@@ -15,6 +16,7 @@ function authorizedUser(req, res, next) {
 
 }
 router.get('/posts', [authorizedUser], (_req, res, next) => {
+  console.log('it issssss working');
   res.render('post_idea');
 });
 

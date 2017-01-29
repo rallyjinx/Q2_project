@@ -4,14 +4,16 @@
     <% include partials/head %>
   </head>
   <body>
+  <header class="header container">
     <% include partials/header %>
+  </header>
     <div class="container-fluid column-pad2">
       <div class="row is-flex">
         <div class="col-md-4 db-col">
           <h3><%= user %>'s Dashboard</h3>
           <ul>
-            <li><a href='/post_idea'>Post a new idea</a></li>
-            <li><a href='/search'>Search ideas</a></li>
+            <li><a href="/posts">Post a new idea</a></li>
+            <li><a href="/search">Search ideas</a></li>
           </ul>
           <br>
           <form class="form-group" action="/posts" method="delete">

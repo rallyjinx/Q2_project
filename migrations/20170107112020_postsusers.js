@@ -7,3 +7,12 @@ exports.up = knex =>
   })
 exports.down = knex =>
   knex.schema.dropTable('postsusers');
+
+  // ┌──────────────────────────────────────────────────────────────────────────────────────────┐
+  // │                                         postsusers                                       │
+  // ├─────────────┬─────────────────────────┬──────────────────────────────────────────────────┤
+  // │id           │serial                   │primary key                                       │
+  // │user_id      │integer                  │not null default '' foreign key references users  │
+  // │post id      │integer                  │not null default '' foreign key references posts  |
+  // └─────────────┴─────────────────────────┴──────────────────────────────────────────────────┘
+  

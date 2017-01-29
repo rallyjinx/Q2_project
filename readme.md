@@ -28,3 +28,11 @@ searchable by topic or you can ask for a random idea.
 // │created_at   │timestamp with time zone │not null default now()                            │
 // │updated_at   │timestamp with time zone │not null default now()                            │
 // └─────────────┴─────────────────────────┴──────────────────────────────────────────────────┘
+
+// ┌──────────────────────────────────────────────────────────────────────────────────────────┐
+// │                                         postsusers                                       │
+// ├─────────────┬─────────────────────────┬──────────────────────────────────────────────────┤
+// │id           │serial                   │primary key                                       │
+// │user_id      │integer                  │not null default '' foreign key references users  │
+// │post id      │integer                  │not null default '' foreign key references posts  |
+// └─────────────┴─────────────────────────┴──────────────────────────────────────────────────┘
