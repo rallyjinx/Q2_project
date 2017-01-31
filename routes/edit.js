@@ -23,7 +23,7 @@ router.get('/edit/:id', [authorizedUser], (req, res, next) => {
       console.log(post.idea_text, post.topic);
       res.render('edit', {
         ideatext: post.idea_text,
-        topic: post.topic
+        edittopic: post.topic
       });
     })
 });

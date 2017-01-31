@@ -14,44 +14,44 @@
           <form class="input form-group" action="/posts" method="post">
             <div class="form-check">
               <h5 class="required-styling">Choose one (required)</h5>
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="topic" id="topic1" value="music">
+                <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="topic" id="topic1" value="music" <% if (edittopic === "music") { %> checked <% } %> >
                 Music
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="topic" id="topic2" value="computer">
+                <input class="form-check-input" type="radio" name="topic" id="topic2" value="computer" <% if (edittopic === "computer") { %> checked <% } %>>
                 Computer
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="topic" id="topic3" value="metal">
+                <input class="form-check-input" type="radio" name="topic" id="topic3" value="metal" <% if (edittopic === "metal") { %> checked <% } %>>
                 Metal
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="topic" id="topic4" value="sewing">
+                <input class="form-check-input" type="radio" name="topic" id="topic4" value="sewing" <% if (edittopic === "sewing") { %> checked <% } %>>
                 Sewing
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="topic" id="topic5" value="writing">
+                <input class="form-check-input" type="radio" name="topic" id="topic5" value="writing" <% if (edittopic === "writing") { %> checked <% } %>>
                 Writing
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="topic" id="topic6" value="wood">
+                <input class="form-check-input" type="radio" name="topic" id="topic6" value="wood" <% if (edittopic === "wood") { %> checked <% } %>>
                 Wood
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="topic" id="topic6" value="performance">
+                <input class="form-check-input" type="radio" name="topic" id="topic6" value="performance" <% if (edittopic === "performance") { %> checked <% } %>>
                 Performance
               </label>
             </div>
