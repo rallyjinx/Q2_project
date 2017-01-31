@@ -12,8 +12,8 @@ function authorizedUser(req, res, next) {
   } else {
     res.render('restricted')
   }
-
 }
+
 router.get('/posts', [authorizedUser], (_req, res, next) => {
   res.render('post_idea');
 });
@@ -46,9 +46,9 @@ router.post('/posts', ev(validations.post), (req, res, next) => {
 });
 
 router.patch('/posts', (req, res, next) => {
-  console.log('hi look it all worked *falls down*');
+  console.log('hi look it all worked *falls down*', req.body);
   knex('posts')
-    .where('id', req.params.id)
+    .where('id', req.body.id)
     .first()
     .then((post) => {
       if (!post) {
@@ -63,7 +63,7 @@ router.patch('/posts', (req, res, next) => {
         .where('id', req.params.id)
     })
     .then((post) => {
-      res.send(post[0]);
+      res.render('dashboard');
     })
     .catch((err) => {
       next(err);

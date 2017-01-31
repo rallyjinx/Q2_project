@@ -59,6 +59,7 @@ const search = require('./routes/search');
 const logout = require('./routes/logout')
 const results = require('./routes/search')
 const postsusers = require('./routes/postsusers')
+const edit = require('./routes/edit')
 
 app.use(users);
 app.use(posts);
@@ -68,6 +69,7 @@ app.use(search);
 app.use(logout);
 app.use(results);
 app.use(postsusers);
+app.use(edit);
 
 app.use((_req, res) => {
   res.sendStatus(404);

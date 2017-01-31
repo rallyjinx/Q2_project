@@ -31,7 +31,7 @@
           <h3>My posted ideas</h3>
           <ul>
             <% ideas.forEach((idea) => { %>
-                <li><%= idea.idea_text %> [ID: <%= idea.id %>] [<%= idea.topic %>] <form action="/posts/?_method=patch" method="post"><a href="/edit">Edit</a></form></li>
+                <li><%= idea.idea_text %> [ID: <%= idea.id %>] [<%= idea.topic %>] <a href="/edit/<%= idea.id %>">Edit</a></li>
             <% }); %>
           </ul>
         </div>
