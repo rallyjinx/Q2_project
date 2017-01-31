@@ -1,20 +1,16 @@
-'use strict';
-
 const express = require('express');
-const router = express.Router();
 const knex = require('../db/knex');
-const bcrypt = require('bcrypt');
 const ev = require('express-validation');
 const validations = require('../validations/users');
-const flash = require('flash');
+
+const router = express.Router();
 
 function authorizedUser(req, res, next) {
-  //
-  let userID = req.session.user;
-  if(userID){
+  const userID = req.session.user;
+  if (userID) {
     next();
   } else {
-    res.render('restricted')
+    res.render('restricted');
   }
 }
 
@@ -22,9 +18,7 @@ router.get('/dashboard', [authorizedUser], (req, res, next) => {
   console.log('dashboard get route is totally working');
   knex('posts')
     .where('user_id', req.session.user.id)
-    .then((myposts) => {
-      return myposts;
-    })
+    .then(myposts => myposts)
     .then((myposts) => {
       knex('postsusers').innerJoin('posts', 'posts.id', 'postsusers.post_id')
       .where('postsusers.user_id', req.session.user.id)
@@ -32,11 +26,10 @@ router.get('/dashboard', [authorizedUser], (req, res, next) => {
         res.render('dashboard', {
           user: req.session.user.username,
           ideas: myposts,
-          saved_ideas: posts
-        })
-      })
-    } )
-
+          saved_ideas: posts,
+        });
+      });
+    });
 });
 
 router.delete('/dashboard', [authorizedUser], (req, res, next) => {
@@ -45,7 +38,7 @@ router.delete('/dashboard', [authorizedUser], (req, res, next) => {
     .where('user_id', req.session.user.id)
     .first()
     .del()
-    //.then((post) => {
+    // .then((post) => {
       // knex('posts')
       //   .where('id', req.body.id)
         // .where('id', req.session.user.id)
@@ -56,7 +49,7 @@ router.delete('/dashboard', [authorizedUser], (req, res, next) => {
           knex('posts')
             .where('user_id', req.session.user.id)
             .then((myposts) => {
-              console.log("myposts", myposts);
+              console.log('myposts', myposts);
 
               return myposts;
             })
@@ -67,12 +60,12 @@ router.delete('/dashboard', [authorizedUser], (req, res, next) => {
                  res.render('dashboard', {
                    user: req.session.user.username,
                    ideas: myposts,
-                   saved_ideas: posts
-                 })
-               })
-          })
+                   saved_ideas: posts,
+                 });
+               });
+            });
         })
-      //})
+      // })
     .catch((err) => {
       next(err);
     });
@@ -89,9 +82,7 @@ router.delete('/dashboard/saved', [authorizedUser], (req, res, next) => {
       delete post.id;
       knex('posts')
         .where('user_id', req.session.user.id)
-        .then((myposts) => {
-          return myposts;
-        })
+        .then(myposts => myposts)
         .then((myposts) => {
           knex('postsusers').innerJoin('posts', 'posts.id', 'postsusers.post_id')
           .where('postsusers.user_id', req.session.user.id)
@@ -99,10 +90,10 @@ router.delete('/dashboard/saved', [authorizedUser], (req, res, next) => {
              res.render('dashboard', {
                user: req.session.user.username,
                ideas: myposts,
-               saved_ideas: posts
-             })
-           })
-      })
-    })
+               saved_ideas: posts,
+             });
+           });
+        });
+    });
 });
 module.exports = router;
