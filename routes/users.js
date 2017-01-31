@@ -8,8 +8,8 @@ const validations = require('../validations/users');
 router.get('/users', (_req, res, next) => {
   res.render('users');
 });
-//ev(validations.post),
-router.post('/users', (req, res, next) => {
+
+router.post('/users', ev(validations.post), (req, res, next) => {
   console.log(req.body.password);
   bcrypt.hash(req.body.password, 12)
     .then((hashedPassword) => {

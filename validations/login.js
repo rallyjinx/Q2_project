@@ -9,7 +9,7 @@ module.exports.post = {
       .required()
       .email()
       .trim(),
-    digest: Joi.string()
+    password: Joi.string()
       .label('Password')
       .required()
       .trim()

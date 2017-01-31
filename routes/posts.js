@@ -6,7 +6,6 @@ const validations = require('../validations/posts');
 
 function authorizedUser(req, res, next) {
   //
-  console.log('greetings from authorizedUser');
   let userID = req.session.user;
   if(userID){
     next();
@@ -16,7 +15,6 @@ function authorizedUser(req, res, next) {
 
 }
 router.get('/posts', [authorizedUser], (_req, res, next) => {
-  console.log('it issssss working');
   res.render('post_idea');
 });
 
@@ -30,14 +28,14 @@ router.get('/posts/:id', (req, res, next) => {
       next(err);
     });
 });
-//ev(validations.post),
-router.post('/posts', (req, res, next) => {
+
+router.post('/posts', ev(validations.post), (req, res, next) => {
   console.log("inside posts, req.body", req.body);
   knex('posts')
     .insert({
       user_id: knex.select('id').from('users').where('id', req.session.user.id),
-      idea_text: req.body.post_text,
-      topic: req.body.topics,
+      idea_text: req.body.idea_text,
+      topic: req.body.topic,
     }, '*')
     .then((posts) => {
       res.redirect('/dashboard')
@@ -47,7 +45,8 @@ router.post('/posts', (req, res, next) => {
     });
 });
 
-router.patch('/posts/:id', (req, res, next) => {
+router.patch('/posts', (req, res, next) => {
+  console.log('hi look it all worked *falls down*');
   knex('posts')
     .where('id', req.params.id)
     .first()
@@ -57,7 +56,7 @@ router.patch('/posts/:id', (req, res, next) => {
       }
       return knex('posts')
         .update({
-          user_id: req.body.user_id, //????
+          user_id: req.body.user_id,
           idea_text: req.body.idea_text,
           topic: req.body.topic,
         }, '*')
@@ -65,27 +64,6 @@ router.patch('/posts/:id', (req, res, next) => {
     })
     .then((post) => {
       res.send(post[0]);
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
-
-router.delete('/posts/:id', (req, res, next) => {
-  console.log('in delete');
-  knex('posts')
-    .where('id', req.params.id)
-    .where('user_id', req.sessions.user)
-    .first()
-    .then((post) => {
-      knex('posts')
-        .where('id', req.params.id)
-        .del()
-        .then(() => {
-          console.log('deleted!');
-          // delete post.id;
-          // res.send(post);
-        })
     })
     .catch((err) => {
       next(err);

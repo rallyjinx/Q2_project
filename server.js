@@ -13,6 +13,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 
 switch (app.get('env')) {
   case 'development':
@@ -35,6 +36,7 @@ app.use(cookieSession({
   secret: "squirrel"
 }))
 app.use(require('flash')());
+app.use(methodOverride('_method'));
 
 const path = require('path');
 
@@ -72,6 +74,8 @@ app.use((_req, res) => {
 });
 
 app.use((err, _req, res, _next) => {
+
+  //console.log("status", err.errors);
   if (err.status) {
     return res.status(err.status).send(err);
   }
@@ -81,6 +85,7 @@ app.use((err, _req, res, _next) => {
 
 app.use((err, _req, res, _next) => {
   if (err.output && err.output.statusCode) {
+    console.log("message", err.message);
     return res
       .status(err.output.statusCode)
       .set('Content-Type', 'text/plain')

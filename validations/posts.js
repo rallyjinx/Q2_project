@@ -9,9 +9,11 @@ module.exports.post = {
       .integer(),
     idea_text: Joi.string()
       .label('Idea Text')
+      .required()
       .min(10)
       .max(300),
     topic: Joi.string()
       .label('Topic')
+      .required()
   }
 };

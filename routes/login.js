@@ -5,7 +5,7 @@ const router = express.Router();
 const knex = require('../db/knex');
 const bcrypt = require('bcrypt');
 const ev = require('express-validation');
-const validations = require('../validations/users');
+const validations = require('../validations/login');
 const flash = require('flash');
 
 router.get('/', function(req, res) {
@@ -18,16 +18,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/login', (_req, res, next) => {
-  console.log('login.js get route');
   res.render('login');
-  // knex('users')
-  //   .orderBy('id')
-  //   .then((users) => {
-  //     res.send(users);
-  //   })
-  //   .catch((err) => {
-  //     next(err);
-  //   });
 });
 
 function authorizedUser(req, res, next) {
@@ -39,8 +30,8 @@ function authorizedUser(req, res, next) {
   }
 }
 
-router.post('/login', function (req, res, next) {
-  console.log('in login.js post', req.body.digest);
+router.post('/login', ev(validations.post), function (req, res, next) {
+  console.log('in login.js post', req.body.password);
 
   knex('users').where({
     email: req.body.email
@@ -49,8 +40,8 @@ router.post('/login', function (req, res, next) {
     if(!user){
       res.redirect('/login') //add something here to say incorrect login or something
     } else {
-      console.log('just before bcrypt.compare', req.body.digest, user.digest);
-      bcrypt.compare(req.body.digest, user.digest, function(err, result) {
+      console.log('just before bcrypt.compare', req.body.password, user.digest);
+      bcrypt.compare(req.body.password, user.digest, function(err, result) {
         if(result){
           console.log('yay!', result);
           req.session.user = user;

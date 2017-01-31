@@ -16,14 +16,14 @@
             <li><a href="/search">Search ideas</a></li>
           </ul>
           <br>
-          <form class="form-group" action="/posts" method="delete">
+          <form class="form-group" action="/dashboard/?_method=delete" method="post">
             <label for="delete">Enter idea ID to delete:</label>
-            <input type="text" name="delete-id" id="delete" size="5"></input> <!-- how to attach id -->
+            <input type="text" name="id" id="delete" size="5"></input> <!-- how to attach id -->
             <button type="submit" class="btn btn-sm btn-secondary">Delete Posted Idea</button>
           </form>
-          <form class="form-group" action="/postsusers" method="delete">
+          <form class="form-group" action="/dashboard/saved?_method=delete" method="post">
             <label for="delete-saved">Enter saved idea ID to delete:</label>
-            <input type="text" name="delete-saved" id="delete-saved" size="5"></input>
+            <input type="text" name="saved_id" id="delete-saved" size="5"></input>
             <button type="submit" class="btn btn-sm btn-secondary">Delete Saved Idea</button>
           </form>
         </div>
@@ -31,7 +31,7 @@
           <h3>My posted ideas</h3>
           <ul>
             <% ideas.forEach((idea) => { %>
-                <li>ID: <%= idea.id %> Idea: <%= idea.idea_text %></li>
+                <li><%= idea.idea_text %> [ID: <%= idea.id %>] [<%= idea.topic %>] <form action="/posts/?_method=patch" method="post"><a href="/edit">Edit</a></form></li>
             <% }); %>
           </ul>
         </div>
@@ -39,7 +39,7 @@
           <h3>Saved ideas</h3>
           <ul>
             <% saved_ideas.forEach((saved_idea) => { %>
-            <li>ID: <%= saved_idea.id %> Idea: <%= saved_idea.idea_text %></li>
+            <li><%= saved_idea.idea_text %> [ID: <%= saved_idea.id %>] [<%= saved_idea.topic %>]</li>
           <% }); %>
         </ul>
         </div>
@@ -48,7 +48,7 @@
     <footer class="foot index-foot">
       <h6>&copy; 2017 Rally Jinx</h6>
     </footer>
-    <script src="./bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   </body>
 </html>
