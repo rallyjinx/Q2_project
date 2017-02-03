@@ -7,6 +7,24 @@
     <header class="header container">
       <% include partials/header %>
     </header>
+      <% if(hasError) { %>
+      <div class="row">
+        <div class="col-md-4 errorBlock">
+          <% for(var item in error) { %>
+            <strong><h6><%= item %></h6></strong>
+            <ul>
+            <% for(var i = 0; i < error[item].length; i++) { %>
+                <li>
+                  <i>
+                    <%= error[item][i].message %>
+                  </i>
+                </li>
+            <% } %>
+            </ul>
+          <% } %>
+        </div>
+      </div>
+      <% } %>
     <div class="container-fluid column-pad2">
       <div class="row">
         <div class="col-md-4 topic-list">
@@ -49,14 +67,14 @@
               </label>
             </div>
             <div class="form-check">
-              <label class="form-check-label">
+              <label class="form-check-label">    
                 <input class="form-check-input" type="radio" name="topic" id="topic6" value="performance">
                 Performance
               </label>
             </div>
         </div>
         <div class="col-md-8">
-          <label for="post-text">Enter your idea here</label>
+          <label for="post-text">Enter your idea here (10 - 300 characters):</label>
           <textarea id="post-text" class="form-control post-text-box" rows="15" name="idea_text" required></textarea>
           <br>
           <button type="submit" class="btn btn-lg btn-primary" id="post-submit-btn">Post Idea</button>

@@ -23,25 +23,43 @@
 
       </nav>
     </header>
+    <% if(hasError) { %>
+    <div class="row">
+      <div class="col-md-4 errorBlock">
+        <% for(var item in error) { %>
+          <strong><h6><%= item %></h6></strong>
+          <ul>
+          <% for(var i = 0; i < error[item].length; i++) { %>
+              <li>
+                <i>
+                  <%= error[item][i].message %>
+                </i>
+              </li>
+          <% } %>
+          </ul>
+        <% } %>
+      </div>
+    </div>
+  <% } %>
     <div class="form-group column-pad1">
       <form class="reg-form" action="/users" method="post">
         <div class="text-center">
           <label class="lbl-lg" for="username">Username</label>
         </div>
         <div class="input-group input-group-lg">
-          <input class="form-control" type="text" id="username" name="username" autofocus></input>
+          <input class="form-control" type="text" id="username" name="username" value="<%= username %>" autofocus></input>
         </div>
         <div class="text-center">
           <label class="lbl-lg" for="email">Email</label>
         </div>
         <div class="input-group input-group-lg">
-          <input class="form-control" type="email" id="email" name="email"></input>
+          <input class="form-control" type="email" id="email" name="email" value="<%= email %>"></input>
         </div>
         <div class="text-center">
           <label class="lbl-lg" for="password">Password</label>
         </div>
         <div class="input-group input-group-lg">
-          <input class="form-control" type="password" id="password" name="password"></input>
+          <input class="form-control" type="password" id="password" name="password" value="<%= password %>"></input>
         </div>
         <div class="text-center">
           <label class="lbl-lg" for="conf_password">Confirm Password</label>
@@ -58,6 +76,7 @@
       <h5>Or click here to go to the login page:</h5>
       <button class="btn btn-sm btn-secondary"><a href="/login">Login</a></button>
     </div>
+
     <footer class="foot index-foot">
       <h6>&copy; 2017 Rally Jinx</h6>
     </footer>
