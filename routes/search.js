@@ -1,48 +1,35 @@
 const express = require('express');
-const router = express.Router({
-  mergeParams: true
-});
-
 const knex = require('../db/knex');
-const ev = require('express-validation');
-const validations = require('../validations/posts');
+
+const router = express.Router({
+  mergeParams: true,
+});
 
 function authorizedUser(req, res, next) {
   //
-  let userID = req.session.user;
-  if(userID){
-    console.log('ok');
+  const userID = req.session.user;
+  if (userID) {
     next();
   } else {
-    res.render('restricted')
+    res.render('restricted');
   }
-
 }
 
-router.get('/search', [authorizedUser], (req, res, next) => {
-
+router.get('/search', [authorizedUser], (req, res) => {
   res.render('search');
 });
 
-router.get('/results', [authorizedUser], (req, res, next) => {
-  //make magic ejs stuff here
-  //find posts with topic="search-term"
-console.log('hi');
-let topic = req.query.topic;
-console.log('this should be the topic', topic);
+router.get('/results', [authorizedUser], (req, res) => {
+  const topic = req.query.topic;
 
-//if random button, display random ideas
+  // stretch goal: if random button, display random ideas
 
-//if topic is selected
+  // if topic is selected
   knex('posts')
     .where('topic', topic)
     .then((posts) => {
-      res.render('results', {ideas: posts, topicname: topic})
-    })
-  //display them with ejs
-  //render the page
-
+      res.render('results', { ideas: posts, topicname: topic });
+    });
 });
-
 
 module.exports = router;

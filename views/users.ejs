@@ -23,24 +23,7 @@
 
       </nav>
     </header>
-    <% if(hasError) { %>
-    <div class="row">
-      <div class="col-md-4 errorBlock">
-        <% for(var item in error) { %>
-          <strong><h6><%= item %></h6></strong>
-          <ul>
-          <% for(var i = 0; i < error[item].length; i++) { %>
-              <li>
-                <i>
-                  <%= error[item][i].message %>
-                </i>
-              </li>
-          <% } %>
-          </ul>
-        <% } %>
-      </div>
-    </div>
-  <% } %>
+    <% include partials/validation %>
     <div class="form-group column-pad1">
       <form class="reg-form" action="/users" method="post">
         <div class="text-center">

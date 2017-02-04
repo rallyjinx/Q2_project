@@ -1,0 +1,18 @@
+<% if(hasError) { %>
+<div class="row">
+  <div class="col-md-4 errorBlock">
+    <% for(var item in error) { %>
+      <strong><h6><%= item %></h6></strong>
+      <ul>
+      <% for(var i = 0; i < error[item].length; i++) { %>
+          <li>
+            <i>
+              <%= error[item][i].message %>
+            </i>
+          </li>
+      <% } %>
+      </ul>
+    <% } %>
+  </div>
+</div>
+<% } %>

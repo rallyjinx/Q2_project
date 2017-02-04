@@ -23,37 +23,20 @@
 
       </nav>
     </header>
-    <% if(hasError) { %>
-    <div class="row">
-      <div class="col-md-4 errorBlock">
-        <% for(var item in error) { %>
-          <strong><h6><%= item %></h6></strong>
-          <ul>
-          <% for(var i = 0; i < error[item].length; i++) { %>
-              <li>
-                <i>
-                  <%= error[item][i].message %>
-                </i>
-              </li>
-          <% } %>
-          </ul>
-        <% } %>
-      </div>
-    </div>
-  <% } %>
+    <% include partials/validation %>
     <div class="form-group column-pad1">
       <form class="login-form" action="/login" method="post">
         <div class="text-center form-group">
           <label class="lbl-lg" for="email">Email</label>
         </div>
         <div class="input-group input-group-lg">
-          <input class="form-control" type="email" id="email" name="email" required autofocus></input>
+          <input class="form-control" type="text" id="email" name="email" autofocus></input>
         </div>
         <div class="text-center">
           <label class="lbl-lg" for="digest">Password</label>
         </div>
         <div class="input-group input-group-lg">
-          <input class="form-control" type="password" id="password" name="password" required></input>
+          <input class="form-control" type="password" id="password" name="password"></input>
         </div>
         <br>
         <div class="text-center">

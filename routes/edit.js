@@ -1,7 +1,8 @@
+/* eslint no-plusplus: 0 */
+/* eslint no-param-reassign: 0 */
+
 const express = require('express');
 const knex = require('../db/knex');
-const ev = require('express-validation');
-const validations = require('../validations/posts');
 
 const router = express.Router();
 
@@ -14,13 +15,11 @@ function authorizedUser(req, res, next) {
   }
 }
 
-router.get('/edit/:id', [authorizedUser], (req, res, next) => {
-  console.log('edit');
+router.get('/edit/:id', [authorizedUser], (req, res) => {
   knex('posts')
     .where('id', req.params.id)
     .first()
     .then((post) => {
-      console.log(post.idea_text, post.topic);
       res.render('edit', {
         ideaid: post.id,
         ideatext: post.idea_text,
